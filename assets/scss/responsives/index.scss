@@ -1,0 +1,50 @@
+@media screen and (max-width: $breakpoint-xl) {
+    @import "./1200/index";
+}
+
+@media screen and (max-width: $breakpoint-lg) {
+    @import "./992/index";
+}
+
+@media screen and (max-width: 768px) {
+    @import "./768/index";
+}
+
+@media screen and (max-width: $breakpoint-md) {
+    @import "./767/index";
+}
+
+@media screen and (max-width: $breakpoint-sm) {
+    @import "./576/index";
+}
+
+@media (max-width: 419px) {
+    .bottom-buttons {
+        margin: 0px;
+        flex-flow: row wrap;
+        vs-button {
+            padding: 0;
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 10px;
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media(max-width: 400px) {
+    .program-mentoring {
+        .join-us {
+            &_image {
+                &_mobile {
+                    transform: translateX(-50%) translateZ(0) scale(0.9);
+                }
+            }
+        }
+    }
+    .program-scholarship_revenue--mobile img {
+        transform: translateX(-50%) translateZ(0) scale(0.9);
+    }
+}

@@ -1,0 +1,9 @@
+@mixin  set-font-sizes {
+    @each $num in $font-size-keys {
+        .fs-#{$num} {
+            font-size: get($font-sizes, $num) !important;
+            line-height: get($font-line-heights, $num) !important;
+        }
+    }
+    
+}
