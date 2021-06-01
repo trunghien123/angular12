@@ -1,0 +1,16 @@
+@mixin set-background-colors {
+    @each $key,
+    $color in $colors {
+        .bg-#{$key} {
+            background: get($colors, $key) !important;
+        }
+    }
+}
+@mixin set-font-colors {
+    @each $key,
+    $color in $colors {
+        .fc-#{$key} {
+            color: get($colors, $key) !important;
+        }
+    }
+}

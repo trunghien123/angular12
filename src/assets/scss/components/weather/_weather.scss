@@ -1,0 +1,167 @@
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 56px;
+  height: 22px;
+  background: $c-gray;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+label {
+  &::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -3px;
+    width: 30px;
+    height: 30px;
+    background: $c-dark-navy;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+}
+
+input {
+  &:checked {
+    + {
+      label {
+        background: $c-integ;
+        &::after {
+          background-color: $c-white;
+        }
+      }
+    }
+  }
+}
+
+input {
+  &:checked {
+    + {
+      label {
+        &::after {
+          left: calc(100% - -3px);
+          transform: translateX(-100%);
+        }
+      }
+    }
+  }
+}
+label {
+  &:active {
+    &:after {
+      width: 30px;
+    }
+  }
+}
+// centering
+body {
+  // display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.weather {
+  
+  &__header {
+    padding: 27px;
+    box-shadow: 0px 3px 20px #c7cbf9;
+  }
+  &__logo {
+    img {
+      max-height: 43px;
+      object-fit: cover;
+    }
+  }
+  &__country {
+    width: 474px;
+    height: 776px;
+    border-radius: 40px;
+    box-shadow: 0px 3px 20px #c7cbf9;
+    &--state {
+      color: #020202;
+      font-size: 30px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 24px 0 41px 0;
+    }
+    img {
+      max-height: 274px;
+      object-fit: contain;
+      justify-content: center;
+    }
+    &--temp {
+      font-size: 120px;
+      line-height: 159px;
+      color: #020202;
+      text-align: center;
+      padding-top: 7px;
+      position: relative;
+      &::after {
+        content: "";
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        border: 2px solid $c-gray;
+        position: absolute;
+        top: 25px;
+      }
+    }
+    &--img {
+      min-height: 274px;
+    }
+    &--min {
+      position: relative;
+      .fa-caret-down {
+        position: absolute;
+        top: -20px;
+        left: 25px;
+        font-size: 40px;
+      }
+    }
+    &--max {
+      position: relative;
+      .fa-caret-up {
+        position: absolute;
+        top: -20px;
+        left: 25px;
+        font-size: 40px;
+      }
+    }
+  }
+}
+.weather.dark {
+    .weather{
+      &__header{
+
+        background-color: #2B244D;
+        
+        .fc-dark-navy, .fc-multi{
+            color: white !important;
+        }
+      }
+    }
+    .weather{
+      &__body{
+        background: linear-gradient(to top,  #2E1D65 ,#B290FF);
+      }
+      &__country{
+        background: linear-gradient(to bottom,  #00057A ,#721C87);
+        box-shadow: none;
+        &--state, &--temp, &--min, &--max, .fc-dark-blue {
+          color: white !important;
+          &::after{
+            border-color: white;
+          }
+        }
+      }
+    }
+}
