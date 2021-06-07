@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 export class ApiService {
   apiServer: string = environment.apiServe;
   apiServerCountry: string = environment.apiServeCountry;
+  apiCovid : string = environment.apiCovid;
   constructor(
     private http: HttpClient,
     @Inject(LOCALE_ID) public locale: any
@@ -35,6 +36,13 @@ export class ApiService {
   }
   getCountry(path: string, endpoint: string, data: any = {}): Observable<any> {
     return this.http.get(url.merge(this.apiServerCountry, path, endpoint, data)).pipe(
+      map((result: any) => {
+        return result;
+      })
+    );
+  }
+  getCovid(path: string, endpoint: string, data: any = {}): Observable<any> {
+    return this.http.get(url.merge(this.apiCovid, path, endpoint, data)).pipe(
       map((result: any) => {
         return result;
       })

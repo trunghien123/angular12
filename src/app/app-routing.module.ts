@@ -17,6 +17,13 @@ const routes: Routes = [
     }
   },
   {
+    path: 'chartCovid',
+    loadChildren: () => import('./modules/chart-covid/chart-covid.module').then(m => m.ChartCovidModule),
+    data : {
+      title: 'ChartCovid'
+    }
+  },
+  {
     path: '**',
     redirectTo: '/'
   }
