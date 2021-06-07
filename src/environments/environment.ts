@@ -4,7 +4,8 @@
 
 export const environment = {
   production: true,
-  apiServe : "http://api.openweathermap.org"
+  apiServe : "http://api.openweathermap.org",
+  apiCovid: "https://api.covid19api.com"
 };
 
 /*
