@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class ApiService {
   apiServer: string = environment.apiServe;
+  apiServerCountry: string = environment.apiServeCountry;
   constructor(
     private http: HttpClient,
     @Inject(LOCALE_ID) public locale: any
@@ -27,6 +28,13 @@ export class ApiService {
    */
   get(path: string, endpoint: string, data: any = {}): Observable<any> {
     return this.http.get(url.merge(this.apiServer, path, endpoint, data)).pipe(
+      map((result: any) => {
+        return result;
+      })
+    );
+  }
+  getCountry(path: string, endpoint: string, data: any = {}): Observable<any> {
+    return this.http.get(url.merge(this.apiServerCountry, path, endpoint, data)).pipe(
       map((result: any) => {
         return result;
       })

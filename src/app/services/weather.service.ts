@@ -8,8 +8,10 @@ import { map } from 'rxjs/operators';
 })
 export class WeatherService {
   path: string = "data/2.5";
+  pathCountry: string = "general"
   endpoints: any = {
-    id : "weather"
+    id : "weather",
+    province: "get_province_list"
   }
   constructor(
     private api: ApiService

@@ -15,7 +15,16 @@
     <!-- body -->
     <div class="px-100 py-100 weather__body">
         <div class="row">
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-md-4 d-flex align-items-center flex-column">
+                <div class="" >
+                    <mat-form-field appearance="fill">
+                        <select matNativeControl  (change)="selected($event)"  name="province1">
+                          <option *ngFor="let pr of provinces; index as i"  [value]="pr.name_en">
+                            {{pr.name}}
+                          </option>
+                        </select>
+                      </mat-form-field>
+                </div>
                 <div class="weather__country">
                     <p class="weather__country--state">{{ name1 }}</p>
                     <div class="d-flex justify-content-center weather__country--img">
@@ -38,7 +47,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-md-4 d-flex align-items-center flex-column">
+                <div class="" >
+                    <mat-form-field appearance="fill">
+                        <mat-select [(ngModel)]="selectedValue2"   name="province2">
+                          <mat-option *ngFor="let pr of provinces; index as i" [value]="pr.name_en">
+                            {{pr.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
                 <div class="weather__country">
                     <p class="weather__country--state">{{ name2 }}</p>
                     <div class="d-flex justify-content-center weather__country--img">
@@ -61,7 +79,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex justify-content-center">
+            <div class="col-md-4 d-flex align-items-center flex-column">
+                <div class="" >
+                    <mat-form-field appearance="fill">
+                        <mat-select [(ngModel)]="selectedValue3"  name="province3">
+                          <mat-option *ngFor="let pr of provinces; index as i" [value]="pr.name_en">
+                            {{pr.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
                 <div class="weather__country">
                     <p class="weather__country--state">{{ name3 }}</p>
                     <div class="d-flex justify-content-center weather__country--img">

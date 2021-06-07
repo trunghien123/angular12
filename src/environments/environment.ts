@@ -4,7 +4,8 @@
 
 export const environment = {
   production: true,
-  apiServe : "http://api.openweathermap.org"
+  apiServe : "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org",
+  apiServeCountry: "https://api.vtest.vietseeds.org/api"
 };
 
 /*

@@ -48,3 +48,10 @@
         transform: translateX(-50%) translateZ(0) scale(0.9);
     }
 }
+@media(max-width: 1699px) {
+    .weather{
+        &__country{
+            width: 100%;
+        }
+    }
+}

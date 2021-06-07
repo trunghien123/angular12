@@ -1,7 +1,13 @@
+import { FormControl } from '@angular/forms';
+import { ProvinceService } from './../../services/province.service';
 import { WeatherService } from './../../services/weather.service';
 import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-
+interface provinceList{
+  id: number;
+  name: string;
+  name_en: string;
+}
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -24,21 +30,27 @@ export class WeatherComponent implements OnInit {
   weatherMain1: string = '';
   weatherMain2: string = '';
   weatherMain3: string = '';
+  provinces ?: provinceList[];
+  selectedValue3 ?:string;
+  selectedValue2 ?:string;
+  selectedValue1 ?:string;
+  
   data1:any = {
-    q : 'saigon',
+    q : 'Ha Noi',
     appid : '37665091eb00d3291b052e9daf04f7be'
   }
   data2:any = {
-    q : 'magadan',
+    q : 'Magada',
     appid : '37665091eb00d3291b052e9daf04f7be'
   }
   data3:any = {
-    q : 'hanoi',
+    q : 'Ho Chi Minh',
     appid : '37665091eb00d3291b052e9daf04f7be'
   }
   @ViewChild('isDark') isDark?: ElementRef;
   constructor(
     private weather: WeatherService,
+    private province: ProvinceService,
     @Inject(DOCUMENT) private readonly doc : Document
   ) { }
 
@@ -46,6 +58,22 @@ export class WeatherComponent implements OnInit {
     this.getTemp1(this.data1);
     this.getTemp2(this.data2);
     this.getTemp3(this.data3);
+    
+    this.province.getProvince().subscribe(
+      (res:any) => {
+        this.provinces = res;
+        console.log(res);
+        
+        this.selectedValue3 = res[62].name_en;
+        this.selectedValue2 = res[30].name_en;
+        this.selectedValue1 = this.data1.q;
+        
+      }
+    )
+  }
+  selected(e: any){
+    console.log(e);
+    
   }
   getTemp1(data1: any): void{
     this.weather.getTemp(this.data1).subscribe(

@@ -165,3 +165,34 @@ body {
       }
     }
 }
+//material
+.mat-select-value{
+  color: #000000;
+}
+.mat-form-field-appearance-fill{
+  .mat-form-field-flex{
+    background-color: #e0dddd;
+    border: none;
+    border-radius: 5px !important;
+    padding: 5px 10px !important;
+  }
+  .mat-form-field-infix{
+    padding: 10px 0;
+    border: none;
+  }
+  .mat-select-arrow-wrapper{
+    transform: none !important;
+  }
+}
+.mat-select-arrow {
+  color: rgb(167 93 93 / 70%);
+}
+.mat-select-panel{
+  background: #ffffff;
+}
+.mat-option{
+  color: #c2185b;
+}
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+  background: rgb(0 0 0 / 12%);
+}
