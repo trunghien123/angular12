@@ -62,18 +62,14 @@ export class WeatherComponent implements OnInit {
     this.province.getProvince().subscribe(
       (res:any) => {
         this.provinces = res;
-        console.log(res);
         
         this.selectedValue3 = res[62].name_en;
         this.selectedValue2 = res[30].name_en;
         this.selectedValue1 = this.data1.q;
         
+        
       }
     )
-  }
-  selected(e: any){
-    console.log(e);
-    
   }
   getTemp1(data1: any): void{
     this.weather.getTemp(this.data1).subscribe(
@@ -83,7 +79,8 @@ export class WeatherComponent implements OnInit {
         this.minTemp1 = Math.round(res.main.temp_min - 273.15);
         this.maxTemp1 = Math.round(res.main.temp_max - 273.15);
         this.weatherMain1 = res.weather[0].main;
-      }, err => {alert(err)}
+      }, err => {console.log(err);
+      (err)}
     )
   }
   getTemp2(data2: any): void{
@@ -94,7 +91,8 @@ export class WeatherComponent implements OnInit {
         this.minTemp2 = Math.round(res.main.temp_min - 273.15);
         this.maxTemp2 = Math.round(res.main.temp_max - 273.15);
         this.weatherMain2 = res.weather[0].main;
-      }, err => {alert(err)}
+      }, err => {console.log(err);
+      (err)}
     )
   }
   getTemp3(data3: any): void{
@@ -105,7 +103,8 @@ export class WeatherComponent implements OnInit {
         this.minTemp3 = Math.round(res.main.temp_min - 273.15);
         this.maxTemp3 = Math.round(res.main.temp_max - 273.15);
         this.weatherMain3 = res.weather[0].main;
-      }, err => {alert(err)}
+      }, err => {console.log(err);
+      (err)}
     )
   }
   onChange(toggleChange: any){

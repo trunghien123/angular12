@@ -8,7 +8,8 @@
         <div class="fs-30 fc-dark-navy">TODAY</div>
         <div class="d-flex fs-18 fc-multi">
             <span>LIGHT</span>
-            <input type="checkbox" id="switch" (change)="onChange($event)" /><label for="switch" class="mx-30">Toggle</label>
+            <input type="checkbox" id="switch" (change)="onChange($event)" /><label for="switch"
+                class="mx-30">Toggle</label>
             <span>DARK</span>
         </div>
     </div>
@@ -16,20 +17,21 @@
     <div class="px-100 py-100 weather__body">
         <div class="row">
             <div class="col-md-4 d-flex align-items-center flex-column">
-                <div class="" >
+                <div class="">
                     <mat-form-field appearance="fill">
-                        <select matNativeControl  (change)="selected($event)"  name="province1">
-                          <option *ngFor="let pr of provinces; index as i"  [value]="pr.name_en">
-                            {{pr.name}}
-                          </option>
-                        </select>
-                      </mat-form-field>
+                        <mat-select name="province1" [(ngModel)]="selectedValue1">
+                            <mat-option *ngFor="let pr of provinces; index as i" [value]="pr.name_en">
+                                {{pr.name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
                 <div class="weather__country">
                     <p class="weather__country--state">{{ name1 }}</p>
                     <div class="d-flex justify-content-center weather__country--img">
                         <img *ngIf="(weatherMain1 | lowercase) === 'rain'" src="../../../assets/images/rain.png" alt="">
-                        <img *ngIf="(weatherMain1 | lowercase) === 'clouds'" src="../../../assets/images/cloud.png" alt="">
+                        <img *ngIf="(weatherMain1 | lowercase) === 'clouds'" src="../../../assets/images/cloud.png"
+                            alt="">
                         <img *ngIf="(weatherMain1 | lowercase) === 'snow'" src="../../../assets/images/snow.png" alt="">
                         <img *ngIf="(weatherMain1 | lowercase) === 'clear'" src="../../../assets/images/sun.png" alt="">
                     </div>
@@ -37,31 +39,34 @@
                     <p class="text-uppercase text-center fs-30 pt-2 fc-dark-blue">{{ weatherMain1 }}</p>
                     <div class="pt-35 d-flex px-66">
                         <div class="flex-grow-1">
-                            <p class="fs-60 weather__country--min">{{ minTemp1 }}<i class="fas fa-caret-down fc-green-darksea"></i></p>
+                            <p class="fs-60 weather__country--min">{{ minTemp1 }}<i
+                                    class="fas fa-caret-down fc-green-darksea"></i></p>
                             <p class="fs-30 pl-10 fc-green-darksea">Min</p>
                         </div>
                         <div class="">
-                            <p class="fs-60 weather__country--max">{{ maxTemp1 }} <i class="fas fa-caret-up fc-red"></i></p>
+                            <p class="fs-60 weather__country--max">{{ maxTemp1 }} <i class="fas fa-caret-up fc-red"></i>
+                            </p>
                             <p class="fs-30 fc-red">Max</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex align-items-center flex-column">
-                <div class="" >
+                <div class="">
                     <mat-form-field appearance="fill">
-                        <mat-select [(ngModel)]="selectedValue2"   name="province2">
-                          <mat-option *ngFor="let pr of provinces; index as i" [value]="pr.name_en">
-                            {{pr.name}}
-                          </mat-option>
+                        <mat-select [(ngModel)]="selectedValue2" name="province2">
+                            <mat-option *ngFor="let pr of provinces; index as i" [value]="pr.name_en">
+                                {{pr.name}}
+                            </mat-option>
                         </mat-select>
-                      </mat-form-field>
+                    </mat-form-field>
                 </div>
                 <div class="weather__country">
                     <p class="weather__country--state">{{ name2 }}</p>
                     <div class="d-flex justify-content-center weather__country--img">
                         <img *ngIf="(weatherMain2 | lowercase) === 'rain'" src="../../../assets/images/rain.png" alt="">
-                        <img *ngIf="(weatherMain2 | lowercase) === 'clouds'" src="../../../assets/images/cloud.png" alt="">
+                        <img *ngIf="(weatherMain2 | lowercase) === 'clouds'" src="../../../assets/images/cloud.png"
+                            alt="">
                         <img *ngIf="(weatherMain2 | lowercase) === 'snow'" src="../../../assets/images/snow.png" alt="">
                         <img *ngIf="(weatherMain2 | lowercase) === 'clear'" src="../../../assets/images/sun.png" alt="">
                     </div>
@@ -69,31 +74,34 @@
                     <p class="text-uppercase text-center fs-30 pt-2 fc-dark-blue">{{ weatherMain2 }}</p>
                     <div class="pt-35 d-flex px-66">
                         <div class="flex-grow-1">
-                            <p class="fs-60 weather__country--min">{{ minTemp2 }}<i class="fas fa-caret-down fc-green-darksea"></i></p>
+                            <p class="fs-60 weather__country--min">{{ minTemp2 }}<i
+                                    class="fas fa-caret-down fc-green-darksea"></i></p>
                             <p class="fs-30 pl-10 fc-green-darksea">Min</p>
                         </div>
                         <div class="">
-                            <p class="fs-60 weather__country--max">{{ maxTemp2 }} <i class="fas fa-caret-up fc-red"></i></p>
+                            <p class="fs-60 weather__country--max">{{ maxTemp2 }} <i class="fas fa-caret-up fc-red"></i>
+                            </p>
                             <p class="fs-30 fc-red">Max</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex align-items-center flex-column">
-                <div class="" >
+                <div class="">
                     <mat-form-field appearance="fill">
-                        <mat-select [(ngModel)]="selectedValue3"  name="province3">
-                          <mat-option *ngFor="let pr of provinces; index as i" [value]="pr.name_en">
-                            {{pr.name}}
-                          </mat-option>
+                        <mat-select [(ngModel)]="selectedValue3" name="province3">
+                            <mat-option *ngFor="let pr of provinces; index as i" [value]="pr.name_en">
+                                {{pr.name}}
+                            </mat-option>
                         </mat-select>
-                      </mat-form-field>
+                    </mat-form-field>
                 </div>
                 <div class="weather__country">
                     <p class="weather__country--state">{{ name3 }}</p>
                     <div class="d-flex justify-content-center weather__country--img">
                         <img *ngIf="(weatherMain3 | lowercase) === 'rain'" src="../../../assets/images/rain.png" alt="">
-                        <img *ngIf="(weatherMain3 | lowercase) === 'clouds'" src="../../../assets/images/cloud.png" alt="">
+                        <img *ngIf="(weatherMain3 | lowercase) === 'clouds'" src="../../../assets/images/cloud.png"
+                            alt="">
                         <img *ngIf="(weatherMain3 | lowercase) === 'snow'" src="../../../assets/images/snow.png" alt="">
                         <img *ngIf="(weatherMain3 | lowercase) === 'clear'" src="../../../assets/images/sun.png" alt="">
                     </div>
@@ -101,11 +109,13 @@
                     <p class="text-uppercase text-center fs-30 pt-2 fc-dark-blue">{{ weatherMain3 }}</p>
                     <div class="pt-35 d-flex px-66">
                         <div class="flex-grow-1">
-                            <p class="fs-60 weather__country--min">{{ minTemp3 }}<i class="fas fa-caret-down fc-green-darksea"></i></p>
+                            <p class="fs-60 weather__country--min">{{ minTemp3 }}<i
+                                    class="fas fa-caret-down fc-green-darksea"></i></p>
                             <p class="fs-30 pl-10 fc-green-darksea">Min</p>
                         </div>
                         <div class="">
-                            <p class="fs-60 weather__country--max">{{ maxTemp3 }} <i class="fas fa-caret-up fc-red"></i></p>
+                            <p class="fs-60 weather__country--max">{{ maxTemp3 }} <i class="fas fa-caret-up fc-red"></i>
+                            </p>
                             <p class="fs-30 fc-red">Max</p>
                         </div>
                     </div>

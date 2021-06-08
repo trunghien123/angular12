@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   apiServe : "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org",
   apiServeCountry: "https://api.vtest.vietseeds.org/api",
   apiCovid: "https://api.covid19api.com"

@@ -22,7 +22,7 @@ export function query(params: any = {}) {
  * @param domain 
  * @param path 
  * @param endpoint 
- * @param params 
+ * @param params
  * @returns
  */
 export function merge(domain:any, path:any, endpoint:any, params:any = null) {

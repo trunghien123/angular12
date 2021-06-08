@@ -9,9 +9,6 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  apiServer: string = environment.apiServe;
-  apiServerCountry: string = environment.apiServeCountry;
-  apiCovid : string = environment.apiCovid;
   constructor(
     private http: HttpClient,
     @Inject(LOCALE_ID) public locale: any
@@ -21,38 +18,40 @@ export class ApiService {
    * REQUEST API
    * METHOD POST
    *
-   * @param {string} path
+   * @param {string} apiServer
    * @param {string} endpoint
+   * @param {string} path
    * @param {*} [data={}]
    * @returns {Observable<any>}
-   * @memberof ApiService
+   * @memberof ApiService 
    */
-  get(path: string, endpoint: string, data: any = {}): Observable<any> {
-    return this.http.get(url.merge(this.apiServer, path, endpoint, data)).pipe(
+  get(apiServer: string,path: string, endpoint: string, data: any = {}): Observable<any> {
+    return this.http.get(url.merge(apiServer, path, endpoint, data)).pipe(
       map((result: any) => {
         return result;
       })
     );
   }
-  getCountry(path: string, endpoint: string, data: any = {}): Observable<any> {
-    return this.http.get(url.merge(this.apiServerCountry, path, endpoint, data)).pipe(
-      map((result: any) => {
-        return result;
-      })
-    );
-  }
-  getCovid(path: string, endpoint: string, data: any = {}): Observable<any> {
-    return this.http.get(url.merge(this.apiCovid, path, endpoint, data)).pipe(
-      map((result: any) => {
-        return result;
-      })
-    );
-  }
+  // getCountry(path: string, endpoint: string, data: any = {}): Observable<any> {
+  //   return this.http.get(url.merge(this.apiServerCountry, path, endpoint, data)).pipe(
+  //     map((result: any) => {
+  //       return result;
+  //     })
+  //   );
+  // }
+  // getCovid(path: string, endpoint: string, data: any = {}): Observable<any> {
+  //   return this.http.get(url.merge(this.apiCovid, path, endpoint, data)).pipe(
+  //     map((result: any) => {
+  //       return result;
+  //     })
+  //   );
+  // }
 
   /**
    * REQUEST API
    * METHOD POST
    *
+   * @param {string} apiServer
    * @param {string} path
    * @param {string} endpoint
    * @param {*} [data={}]
@@ -60,7 +59,7 @@ export class ApiService {
    * @returns
    * @memberof ApiService
    */
-  post(path: string, endpoint: string, data: any = {}, options: any = null) {
+  post(apiServer:string, path: string, endpoint: string, data: any = {}, options: any = null) {
     let httpOptions;
     if (!options || options.type != 'multipart/form-data') {
       httpOptions = {
@@ -73,7 +72,7 @@ export class ApiService {
         headers: new HttpHeaders({})
       };
     }
-    return this.http.post(url.merge(this.apiServer, path, endpoint), data, httpOptions).pipe(
+    return this.http.post(url.merge(apiServer, path, endpoint), data, httpOptions).pipe(
       map((result: any) => {
         return result;
       })
@@ -83,6 +82,7 @@ export class ApiService {
   /**
    * REQUEST API
    * METHOD PUT
+   * @param {string} apiServer
    * @param {string} path
    * @param {string} endpoint
    * @param {*} data
@@ -90,13 +90,13 @@ export class ApiService {
    * @returns {Observable<any>}
    * @memberof ApiService
    */
-  put(path: string, endpoint: string, data: any, options?: any): Observable<any> {
+  put(apiServer: string, path: string, endpoint: string, data: any, options?: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': (options && options.type) ? options.type : 'application/json',
       })
     };
-    return this.http.put(url.merge(this.apiServer, path, endpoint), data, httpOptions).pipe(
+    return this.http.put(url.merge(apiServer, path, endpoint), data, httpOptions).pipe(
       map((result: any) => {
         return result;
       })
@@ -106,6 +106,7 @@ export class ApiService {
   /**
    * REQUEST API FOR FILE DATA
    * METHOD POST
+   * @param {string} apiServer
    * @param {string} path
    * @param {string} endpoint
    * @param {*} data
@@ -113,8 +114,8 @@ export class ApiService {
    * @returns {Observable<any>}
    * @memberof ApiService
    */
-  file(path: string, endpoint: string, data: any): Observable<any> {
-    return this.http.post(url.merge(this.apiServer, path, endpoint), data, { responseType: 'blob' });
+  file(apiServer: string, path: string, endpoint: string, data: any): Observable<any> {
+    return this.http.post(url.merge(apiServer, path, endpoint), data, { responseType: 'blob' });
   }
 
 //   /**
