@@ -43,7 +43,7 @@ export class ChartCovidComponent implements OnInit {
         datasetCovid = res.filter((value: any) => { return new Date(value.Date).toLocaleDateString() === date });
         console.log(datasetCovid);
         if (datasetCovid.length > 0) {
-          arr.push(datasetCovid[0].Deaths);
+          arr.push(datasetCovid[0].Deaths) ;
           arr.push(datasetCovid[0].Recovered);
           this.ChartData[i].data = arr;
           arr.push(datasetCovid[0].Active);
