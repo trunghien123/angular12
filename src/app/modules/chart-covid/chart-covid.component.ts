@@ -12,7 +12,7 @@ import { CoronaService } from 'src/app/services/corona.service';
 })
 export class ChartCovidComponent implements OnInit {
 
-  countries = ['Việt Nam', 'Indonesia', 'Thailand', 'Malaysia'];
+  checkDate: boolean = false;
   constructor(
     private apiCovid: CoronaService
   ) { }
@@ -23,6 +23,8 @@ export class ChartCovidComponent implements OnInit {
     this.getDataCovid('th', 2, 'thailand', `${this.dateDefault.toLocaleDateString()}`);
     this.getDataCovid('my', 3, 'malaysia', `${this.dateDefault.toLocaleDateString()}`);
     this.getDataCovid('ae', 4, 'UAE', `${this.dateDefault.toLocaleDateString()}`);
+    console.log(this.checkDate);
+
 
   }
 
@@ -40,16 +42,20 @@ export class ChartCovidComponent implements OnInit {
     let datasetCovid = [] as any;
     this.apiCovid.getCovid(data).subscribe(
       (res: any) => {
-        datasetCovid = res.filter((value: any) => { return new Date(value.Date).toLocaleDateString() === date });
-        console.log(datasetCovid);
-        if (datasetCovid.length > 0) {
-          arr.push(datasetCovid[0].Deaths) ;
-          arr.push(datasetCovid[0].Recovered);
-          this.ChartData[i].data = arr;
-          arr.push(datasetCovid[0].Active);
-          this.ChartData[i].label = datasetCovid[0].Country;
-        } else {
-          alert("Dữ liệu không tồn tại. Mời bạn thử lại")
+        if (this.checkDate == false) {
+
+          datasetCovid = res.filter((value: any) => { return new Date(value.Date).toLocaleDateString() === date });
+          console.log(datasetCovid);
+          if (datasetCovid.length > 0) {
+            arr.push(datasetCovid[0].Deaths);
+            arr.push(datasetCovid[0].Recovered);
+            this.ChartData[i].data = arr;
+            arr.push(datasetCovid[0].Active);
+            this.ChartData[i].label = datasetCovid[0].Country;
+          } else {
+            this.checkDate = true;
+            alert("Dữ liệu không tồn tại")
+          }
         }
       }, (err: any) => {
         console.log(err);
