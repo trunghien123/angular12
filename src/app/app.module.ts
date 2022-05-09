@@ -10,6 +10,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { RequestInterceptor } from './shares/interceptors/request.interceptor';
+import { NgRouterLoadingDirective, NgRouterLoadingModule } from '@amitgroup/ng-router-loading';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { RequestInterceptor } from './shares/interceptors/request.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgRouterLoadingModule
   ],
   providers: [
     {

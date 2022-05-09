@@ -16,7 +16,7 @@ import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
     MatSelectModule,
     FormsModule,
     MatFormFieldModule,
-    ReactiveFormsModule    
+    ReactiveFormsModule,
   ],
   providers: []
 })

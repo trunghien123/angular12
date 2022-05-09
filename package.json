@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@amitgroup/ng-router-loading": "0.0.0",
     "@angular/animations": "~12.0.2",
     "@angular/cdk": "^12.0.2",
     "@angular/common": "~12.0.2",
